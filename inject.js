@@ -47,7 +47,7 @@ var injected = injected || (function() {
         if (typeof newText === 'string' || typeof newText === 'number') {
             //input is text, checkbox, radio
             Array.from(document.querySelectorAll('input')).forEach(el => {
-                if (el.name == inputName || el.getAttribute("ng-reflect-name") == inputName) {
+                if (el.name == inputName || el.getAttribute("ng-reflect-name") == inputName || el.id == inputName) {
                     if (el.type == "text" || el.type == "number") {
                         el.value = newText;
                     } else if (el.type == "radio") {
@@ -62,12 +62,12 @@ var injected = injected || (function() {
                 }
             });
             Array.from(document.querySelectorAll('textarea')).forEach(el => {
-                if (el.name == inputName || el.getAttribute("ng-reflect-name") == inputName) {
+                if (el.name == inputName || el.getAttribute("ng-reflect-name") == inputName || el.id == inputName) {
                     el.value = newText;
                 }
             });
             Array.from(document.querySelectorAll('select')).forEach(el => {
-                if (el.name == inputName || el.getAttribute("ng-reflect-name") == inputName) {
+                if (el.name == inputName || el.getAttribute("ng-reflect-name") == inputName || el.id == inputName) {
                     var val = newText;
                     var opts = el.options;
                     for (var opt, j = 0; opt = opts[j]; j++) {
